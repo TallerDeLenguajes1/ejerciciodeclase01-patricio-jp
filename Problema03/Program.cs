@@ -48,7 +48,17 @@ namespace Problema03
 
         static void MostrarAuto(Auto auto)
         {
-            Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+            try
+            {
+                Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+            }
+            catch (NullReferenceException) {
+                Console.WriteLine("Error. Se intenta acceder a una instancia de objeto no definida.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex);
+            }
             Console.ReadLine();
         }
     }
